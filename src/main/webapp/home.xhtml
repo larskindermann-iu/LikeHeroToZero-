@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core">
+<f:view>
+    <h:head>
+        <title>Home - Like Hero To Zero</title>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+        <style>
+
+            .navbar-brand img {
+                height: 40px;
+            }
+            .footer {
+                background-color: #f8f9fa;
+                padding: 20px 0;
+                text-align: center;
+                position: absolute;
+                width: 100%;
+                bottom: 0;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+            <a class="navbar-brand text-light" href="#"><h2>Like Hero To Zero</h2></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"/>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto ">
+                    <li class="nav-item">
+                        <h:link value="Heim" outcome="home" styleClass="nav-link text-light"/>
+                    </li>
+                    <li class="nav-item">
+                        <h:link value="Registrieren" outcome="register" styleClass="nav-link text-light"/>
+                    </li>
+                    <li class="nav-item">
+                        <h:link value="Login" outcome="login" styleClass="nav-link text-light"/>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="container mt-4">
+            <h1 class="text-center">Globale CO2-Emissionsdaten</h1>
+            <p class="lead">Willkommen beim Dashboard für globale CO2-Emissionen. Hier können Sie die neuesten Daten zu Kohlendioxidemissionen weltweit erkunden und analysieren.</p>
+            <h:dataTable value="#{co2DataBean.co2DataList}" var="data" class="table table-striped">
+                <h:column>
+                    <f:facet name="header">Land</f:facet>
+                    #{data.country}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Jahr</f:facet>
+                    #{data.year}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Emissionen</f:facet>
+                    #{data.emissions}
+                </h:column>
+            </h:dataTable>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <span class="text-muted">© 2024 Wie Hero To Zero. Alle Rechte vorbehalten.</span>
+            </div>
+        </footer>
+
+        <!-- Bootstrap JS and dependencies -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </h:body>
+</f:view>
+</html>

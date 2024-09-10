@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core"
+      xmlns:ui="http://xmlns.jcp.org/xml/ns/javaee">
+<f:view>
+    <h:head>
+        <title>Armaturenbrett - Like Hero To Zero</title>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+
+        <style>
+            .container {
+                margin-top: 80px;
+            }
+            .data-form-container {
+                max-width: 600px;
+                margin: 100px auto;
+                padding: 20px;
+                background-color: #f8f9fa;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+            .form-title {
+                margin-bottom: 20px;
+                text-align: center;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <a class="navbar-brand text-light" href="#"><h2>Armaturenbrett</h2></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <h:form>
+                            <h:commandButton value="Abmelden" action="#{authBean.logout}" styleClass="btn btn-danger btn-custom"/>
+                        </h:form>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="data-form-container">
+            <h1 class="form-title">Neue CO2-Daten hinzufügen</h1>
+            <h:form>
+                <div class="form-group">
+                    <h:outputLabel for="country" value="Land:" />
+                    <h:inputText id="country" value="#{co2DataBean.newCo2Data.country}" styleClass="form-control" />
+                </div>
+                <div class="form-group">
+                    <h:outputLabel for="year" value="Jahr:" />
+                    <h:inputText id="year" value="#{co2DataBean.newCo2Data.year}" styleClass="form-control" />
+                </div>
+                <div class="form-group">
+                    <h:outputLabel for="emissions" value="Emissionen (in Tonnen):" />
+                    <h:inputText id="emissions" value="#{co2DataBean.newCo2Data.emissions}" styleClass="form-control" />
+                </div>
+                <div class="text-center">
+                    <h:commandButton value="Daten hinzufügen" action="#{co2DataBean.addCo2Data}" styleClass="btn btn-primary btn-block" />
+                </div>
+            </h:form>
+        </div>
+
+        <!-- Bootstrap JS and dependencies -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </h:body>
+</f:view>
+</html>

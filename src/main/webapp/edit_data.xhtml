@@ -1,0 +1,25 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core">
+<f:view>
+<h:head>
+   <title>CO2-Daten bearbeiten- Like Hero To Zero</title>
+</h:head>
+<h:body>
+   <h1>CO2-Daten bearbeiten</h1>
+   <h:form>
+      <h:outputLabel for="country" value="Land: " />
+      <h:inputText id="country" value="#{co2DataBean.selectedCo2Data.country}" required="true" requiredMessage="Country is required" /><br/>
+
+      <h:outputLabel for="year" value="Jahr: " />
+      <h:inputText id="year" value="#{co2DataBean.selectedCo2Data.year}" required="true" requiredMessage="Year is required" /><br/>
+
+      <h:outputLabel for="emissions" value="Emissionen: " />
+      <h:inputText id="emissions" value="#{co2DataBean.selectedCo2Data.emissions}" required="true" requiredMessage="Emissions are required" /><br/>
+
+      <h:commandButton value="Update Data" action="#{co2DataBean.updateCo2Data}" class="btn btn-primary" />
+   </h:form>
+
+</h:body>
+</f:view>
+</html>
