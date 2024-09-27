@@ -16,7 +16,7 @@ public class UserBean {
     public String register() {
         UserDao dao = new UserDao();
         dao.save(newUser);
-        newUser = new User(); // Reset the form
+        newUser = new User();
         return "login?faces-redirect=true";
     }
 

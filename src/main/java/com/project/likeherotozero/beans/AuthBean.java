@@ -9,7 +9,6 @@ import java.io.Serializable;
 
 @Named
 @SessionScoped
-
 public class AuthBean implements Serializable {
     private String username;
     private String password;

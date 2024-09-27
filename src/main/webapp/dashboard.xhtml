@@ -63,16 +63,21 @@
                         #{data.emissions}
                     </h:column>
                     <h:column>
-                        <h:form>
-                            <h:commandButton value="Edit" action="#{co2DataBean.editCo2Data(data)}" class="btn btn-warning btn-sm"/>
-                        </h:form>
-                        <h:form>
-                            <h:commandButton value="Delete" action="#{co2DataBean.deleteCo2Data(data)}" class="btn btn-danger btn-sm"
-                                             onclick="if (!confirm('Are you sure you want to delete this data?')) return false;" />
-                        </h:form>
-
-
+                        <div class="row">
+                            <div class="col-6">
+                                <h:form>
+                                    <h:commandButton value="Edit" action="#{co2DataBean.editCo2Data(data)}" class="btn btn-warning btn-sm"/>
+                                </h:form>
+                            </div>
+                            <div class="col-6">
+                                <h:form>
+                                    <h:commandButton value="Delete" action="#{co2DataBean.deleteCo2Data(data)}" class="btn btn-danger btn-sm"
+                                                     onclick="if (!confirm('Are you sure you want to delete this data?')) return false;" />
+                                </h:form>
+                            </div>
+                        </div>
                     </h:column>
+
                 </h:dataTable>
             </h:form>
         </div>
