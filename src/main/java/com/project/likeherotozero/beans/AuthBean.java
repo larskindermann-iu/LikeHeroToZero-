@@ -19,17 +19,38 @@ public class AuthBean implements Serializable {
     public String login() {
         UserDao userDao = new UserDao();
         User user = userDao.findByUsername(username);
+
+        // Validate user credentials
         if (user != null && user.getPassword().equals(password)) {
             loggedInUser = user;
-            return "dashboard?faces-redirect=true";
+
+            // Redirect based on user role
+            return redirectToDashboard();
         } else {
-            return "login?faces-redirect=true";
+            // Handle login failure
+            return "login?faces-redirect=true";  // Login failed
         }
     }
 
     public String logout() {
-        loggedInUser = null;
-        return "home?faces-redirect=true";
+        loggedInUser = null; // Clear the logged-in user
+        return "home?faces-redirect=true"; // Redirect to home after logout
+    }
+
+    public String getUserRole() {
+        // Return the role of the logged-in user
+        return loggedInUser != null ? loggedInUser.getRole() : null;
+    }
+
+    private String redirectToDashboard() {
+        // Redirect based on user role
+        if ("EDITOR".equalsIgnoreCase(loggedInUser.getRole())) {
+            return "editor_dashboard?faces-redirect=true";
+        } else if ("SCIENTIST".equalsIgnoreCase(loggedInUser.getRole())) {
+            return "scientist_dashboard?faces-redirect=true";
+        } else {
+            return "dashboard?faces-redirect=true";  // Default dashboard
+        }
     }
 
     // Getters and setters

@@ -48,20 +48,23 @@
         <div class="container mt-4">
             <h1 class="text-center">Global CO2 Emissions Data</h1>
             <p class="lead text-center">Here you can explore and analyze the latest data on carbon dioxide emissions worldwide.</p>
-            <h:dataTable value="#{co2DataBean.co2DataList}" var="data" class="table table-striped">
-                <h:column>
-                    <f:facet name="header">Country</f:facet>
-                    #{data.country}
-                </h:column>
-                <h:column>
-                    <f:facet name="header">Year</f:facet>
-                    #{data.year}
-                </h:column>
-                <h:column>
-                    <f:facet name="header">	Emissions</f:facet>
-                    #{data.emissions}
-                </h:column>
-            </h:dataTable>
+            <h:form>
+                <h:dataTable value="#{co2DataBean.allCo2Data}" var="data" class="table table-striped mt-4">
+                    <h:column>
+                        <f:facet name="header">Country</f:facet>
+                        #{data.country}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Year</f:facet>
+                        #{data.year}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Emissions</f:facet>
+                        #{data.emissions}
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+
         </div>
 
         <!-- Footer -->
